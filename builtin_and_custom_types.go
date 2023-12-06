@@ -38,15 +38,34 @@ func (player Player) getHealth() int {
 // 	return player.health
 // }
 
+// custom type
+type Weapon string
+
+func getWeapon(weapon Weapon) string {
+	return string(weapon)
+}
+
 func main() {
+	// initializing slices, value in [] limits the length
+	numbers := [3]int{1, 2, 3}
+	// so you can't add forth value in numbers
+
+	// with length, it fills up with 0 if empty
+	otherNumbers := make([]int, 10)
+	otherNumbers = append(otherNumbers, 12)
+
+	fmt.Println(numbers, otherNumbers)
+
+	// _______________________
 	// empty struct
 	// player := Player{}
 	// assign values for variables in the struct
-	player := Player{
-		name:   "Jack",
-		health: 50,
-		power:  100.10,
-	}
+	// player := Player{
+	// 	name:   "Jack",
+	// 	health: 50,
+	// 	power:  100.10,
+	// }
+
 	// print formated
 	// use +v to print names of the variables
 	// %d - for integers
@@ -56,8 +75,9 @@ func main() {
 	// get variable of the struct with function receiver
 	// fmt.Printf("Health: %d\n", player.getHealth())
 	// or directly from struct
-	fmt.Printf("Health: %d\n", player.health)
+	// fmt.Printf("Health: %d\n", player.health)
 
+	// _______________________
 	// maps
 	// empty map - map[type]type
 	// most used method
