@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// best practice - capitalize name of a function, except those that in package main
+
 // function name( param and type) returns (result or error)
 // always returns 2 parameters
 func getFiles(path string) ([]string, error) {
