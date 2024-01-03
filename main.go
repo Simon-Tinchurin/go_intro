@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Number of the next lesson: 7
+// Number of the next lesson: 8
 
 // declearing variables
 var (
