@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Number of the next lesson: 8
+// Number of the next lesson: 9
 
 // declearing variables
 var (
@@ -18,7 +18,7 @@ var (
 // always in lowercase
 const someConstant = 150
 
-func main() {
+func first_main() {
 	var version int
 	version = 100            // infer integer
 	otherVersion := "second" // infer string

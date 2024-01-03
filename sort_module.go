@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func main() {
+func sort_main() {
 
 	// ----------- INT
 	sliceFloat64 := []float64{4.2, -1.3, 0.8, -3.8, 12.6}

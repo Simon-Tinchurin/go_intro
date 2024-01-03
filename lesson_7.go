@@ -43,7 +43,7 @@ type ApiServer struct {
 	numberStore NumberStorer
 }
 
-func main() {
+func les_7_main() {
 	apiServer := ApiServer{
 		numberStore: PostgresNumberStore{},
 	}

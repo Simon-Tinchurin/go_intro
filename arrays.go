@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func main() {
+func arrauys_main() {
 	// empty array of strings with len 3
 	var array [3]string
 

@@ -56,7 +56,7 @@ func getDamage(weaponType WeaponType) int {
 	}
 }
 
-func main() {
+func les_5_main() {
 	fmt.Printf("Damage of the given weapon (%s) (%d):\n", Axe, getDamage(Axe))
 	fmt.Printf("Damage of the given weapon (%s) (%d):\n", Sword, getDamage(Sword))
 	fmt.Printf("Damage of the given weapon (%s) (%d):\n", WoodenStick, getDamage(WoodenStick))

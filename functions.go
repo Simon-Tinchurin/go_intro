@@ -37,7 +37,7 @@ func returnRog() (rog int) {
 	return
 }
 
-func main() {
+func functions_main() {
 	// write function in a variable
 	functionInVariable := func(x, y int) int {
 		i := (x + y) * 2

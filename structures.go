@@ -18,7 +18,7 @@ type info struct {
 	}
 }
 
-func main() {
+func structures_main() {
 
 	text := `{"friends": [{"id": 1,"name": "Annabelle Carey"},
 						{"id": 2,"name": "Nellie Hansen"},

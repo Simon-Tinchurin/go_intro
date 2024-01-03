@@ -11,7 +11,7 @@ import (
 
 // i++ is the same as i = i + 1
 
-func main() {
+func loops_main() {
 	i := 1
 	for i <= 2 {
 		fmt.Println(i)

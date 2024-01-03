@@ -5,10 +5,10 @@ import "fmt"
 var (
 	floatVar32 float32 = 0.1
 	floatVar64 float64 = 0.1
-	name       string  = "Foo"
-	intVar32   int32   = 10
-	intVar64   int64   = 513434
-	intVar     int     = -2
+	// name       string  = "Foo"
+	intVar32 int32 = 10
+	intVar64 int64 = 513434
+	intVar   int   = -2
 	// unsigned integer, always >=0
 	uintVar   uint   = 1
 	uintVar32 uint32 = 444
@@ -45,7 +45,7 @@ func getWeapon(weapon Weapon) string {
 	return string(weapon)
 }
 
-func main() {
+func types_main() {
 	// initializing slices, value in [] limits the length
 	numbers := [3]int{1, 2, 3}
 	// so you can't add forth value in numbers

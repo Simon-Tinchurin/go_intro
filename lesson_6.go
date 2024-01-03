@@ -6,7 +6,7 @@ import "fmt"
 // for Loops
 // range
 // break
-func main() {
+func les_6_main() {
 
 	numbers := []int{1, 2, 3, 4, 5, 6, 7}
 	names := []string{"a", "b", "c", "d"}

@@ -10,7 +10,7 @@ import "fmt"
 // if first letter of the var name is lowercase:
 // this var can be accessed only in package where it was declared
 
-func main() {
+func types_2_main() {
 
 	// it's possible to declare few variables in one line
 	j, k, l := "shark", 2.05, 15
