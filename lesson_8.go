@@ -25,7 +25,7 @@ import (
 // User -> public access
 // user -> private access BUT public in its own package
 
-func main() {
+func les_8_main() {
 	// number := getNum ber()
 	user := types.User{
 		Username: util.GetUserName(),
