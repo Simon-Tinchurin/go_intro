@@ -45,7 +45,7 @@ const (
 	ColorPink
 )
 
-func main() {
+func les_9_main() {
 	e := SpecialEntity{
 		specialField: 1.234,
 		Entity: Entity{
