@@ -58,7 +58,7 @@ func transformString(s string, fn TransformFunc) string {
 	return fn(s)
 }
 
-func main() {
+func les_10_main() {
 	s := &Server{
 		store: &FooStorage{},
 	}
