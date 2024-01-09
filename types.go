@@ -33,5 +33,5 @@ func types_2_main() {
 	fmt.Scanf("%f", &input)
 
 	output := input + 1
-	fmt.Println(output, "\n")
+	fmt.Println(output)
 }

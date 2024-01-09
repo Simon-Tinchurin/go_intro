@@ -40,7 +40,7 @@ func (s *Server1) GetUserFromDB() string {
 	return s.db.user
 }
 
-func main() {
+func les_12_main() {
 	player := Player1{
 		HP: 100,
 	}
