@@ -269,14 +269,101 @@ func Solution(str, ending string) bool {
 	return true
 }
 
+func GetSum(a, b int) int {
+	if a == b {
+		return a
+	}
+	var res int
+	if a < b {
+		for i := a; i <= b; i++ {
+			res += i
+		}
+	}
+	if a > b {
+		for i := b; i <= a; i++ {
+			res += i
+		}
+	}
+	return res
+}
+
+func RowSumOddNumbers(n int) int {
+	res := 1
+	for i := 0; i < 3; i++ {
+		res *= n
+	}
+	return res
+}
+
+func RemoveChar(word string) string {
+	return word[1 : len(word)-1]
+}
+
+func SortByLength(arr []string) (res []string) {
+	var lengths []int
+	for _, word := range arr {
+		lengths = append(lengths, len(word))
+	}
+	sort.Ints(lengths)
+	for _, lenght := range lengths {
+		for _, word := range arr {
+			if lenght == len(word) {
+				res = append(res, word)
+			}
+		}
+	}
+	return res
+}
+
+// rank up
+func Multiple3And5(number int) (res int) {
+	for i := number - 1; i > 0; i-- {
+		iCounted := false
+		if i%3 == 0 {
+			res += i
+			iCounted = true
+		}
+		if i%5 == 0 && !iCounted {
+			res += i
+		}
+	}
+	return res
+}
+
+func FindOutlier(integers []int) (res int) {
+	var divided float64
+	for _, val := range integers {
+		divided += math.Abs(float64(val % 2))
+	}
+	for _, val := range integers {
+		if val%2 != 0 && divided == 1 {
+			res = val
+		}
+		if val%2 == 0 && divided > 1 {
+			res = val
+		}
+	}
+	return res
+}
+
+func DigPow(n, p int) (res int) {
+	var sumOfPow int
+	strIntSlice := strings.Split(strconv.Itoa(n), "")
+	for ind, val := range strIntSlice {
+		intVal, _ := strconv.Atoi(val)
+		poweredVal := math.Pow(float64(intVal), float64(p+ind))
+		sumOfPow += int(poweredVal)
+	}
+	if sumOfPow%n == 0 {
+		res = sumOfPow / n
+	} else {
+		res = -1
+	}
+	return res
+}
+
 func main() {
-
-	// res := Century(1704)
-	// res := CountBy(2, 5)
-	// res := DNAStrand("ATTGC")
-	// res := CheckForFactor(10, 2)
-
-	res := Solution("", "t")
+	res := DigPow(46288, 3)
 
 	fmt.Println(res)
 
@@ -296,4 +383,17 @@ func main() {
 	// res := TwoToOne("xyaabbbccccdefww", "xxxxyyyyabklmopq")
 	// res := EvenOrOdd(20)
 	// res := GetCount("abracadabra")
+	// res := Century(1704)
+	// res := CountBy(2, 5)
+	// res := DNAStrand("ATTGC")
+	// res := CheckForFactor(10, 2)
+	// res := Solution("", "t")
+	// res := GetSum(-1, 2)
+	// res := RowSumOddNumbers(4)
+	// res := RemoveChar("eloquent")
+	// res := SortByLength([]string{"Telescopes", "Glasses", "Eyes", "Monocles"})
+	// res := Multiple3And5(10)
+	// res := FindOutlier([]int{2, 4, 0, 100, 4, 11, 2602, 36})
+	// res2 := FindOutlier([]int{160, 3, 1719, 19, 11, 13, -21})
+
 }
