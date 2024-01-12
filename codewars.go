@@ -362,14 +362,55 @@ func DigPow(n, p int) (res int) {
 	return res
 }
 
+func FindEvenIndex(arr []int) int {
+	res := -1
+	for ind := range arr {
+		left := arr[0:ind]
+		right := arr[ind+1:]
+		leftSum := 0
+		rightSum := 0
+		for _, leftVal := range left {
+			leftSum += leftVal
+		}
+		for _, rightVal := range right {
+			rightSum += rightVal
+		}
+		if leftSum == rightSum {
+			res = ind
+		}
+		if res != -1 {
+			break
+		}
+	}
+	return res
+}
+
+func ValidISBN10(isbn string) bool {
+	var totalSum int
+	if len(isbn) != 10 {
+		return false
+	}
+	for ind, val := range isbn {
+		if (val == 'X' || val == 'x') && ind == 9 {
+			totalSum += 10 * (ind + 1)
+		} else {
+			intVal, _ := strconv.Atoi(string(val))
+			totalSum += intVal * (ind + 1)
+		}
+	}
+	if totalSum == 0 {
+		return false
+	}
+	return totalSum%11 == 0
+}
+
 func main() {
-	res := DigPow(46288, 3)
 
+	res := ValidISBN10("ABCDEFGHIJ")
 	fmt.Println(res)
-
 	// result := SumMix([]any{"5", "0", 9, 3, 2, 1, "9", 6, 7})
 	// result := Invert([]int{1, 2, 3, 4})
-	// result := Digitize(43512)
+	// result := Digitize(435s12)
 	// result := Summation(8)
 	// result := RepeatStr(3, "Hello")
 	// result := NoSpace("8 j 8   mBliB8g  imjB8B8  jl  B")
@@ -395,5 +436,7 @@ func main() {
 	// res := Multiple3And5(10)
 	// res := FindOutlier([]int{2, 4, 0, 100, 4, 11, 2602, 36})
 	// res2 := FindOutlier([]int{160, 3, 1719, 19, 11, 13, -21})
+	// res := DigPow(46288, 3)
+	// res := FindEvenIndex([]int{1, 2, 3, 4, 3, 2, 1})
 
 }
