@@ -404,10 +404,142 @@ func ValidISBN10(isbn string) bool {
 	return totalSum%11 == 0
 }
 
-func main() {
+func Disemvowel(comment string) string {
+	vowels := []string{"a", "A", "e", "E", "u", "U", "o", "O", "i", "I"}
+	result := ""
+	for _, letter := range comment {
+		isVowel := false
+		for _, vowel := range vowels {
+			if vowel == string(letter) {
+				isVowel = true
+				break
+			}
+		}
+		if !isVowel {
+			result += string(letter)
+		}
+	}
+	return result
+}
 
-	res := ValidISBN10("ABCDEFGHIJ")
+func duplicate_count(s1 string) int {
+	dictionary := make(map[string]int)
+	for _, i := range s1 {
+		item := string(unicode.ToLower(i))
+		_, exists := dictionary[item]
+		if exists {
+			dictionary[item] += 1
+		} else {
+			dictionary[item] = 1
+		}
+	}
+	count := 0
+	for _, v := range dictionary {
+		if v > 1 {
+			count++
+		}
+	}
+	return count
+}
+
+func DNAtoRNA(dna string) string {
+	result := ""
+	for _, v := range dna {
+		if string(v) == "T" {
+			result += "U"
+		} else {
+			result += string(v)
+		}
+	}
+	return result
+}
+
+func Persistence(n int) int {
+	count := 0
+	for n/10 != 0 {
+		numStr := strconv.Itoa(n)
+		for ind, v := range numStr {
+			intFromStr, _ := strconv.Atoi(string(v))
+			if ind == 0 {
+				n = intFromStr
+			} else {
+				n = n * intFromStr
+			}
+		}
+		count++
+	}
+	return count
+}
+
+func GetMiddle(s string) string {
+	res := len(s) / 2
+	if len(s)%2 > 0 {
+		return string(s[res])
+	} else {
+		return string(s[res-1 : res+1])
+	}
+}
+
+func BoolToWord(word bool) string {
+	if word {
+		return "Yes"
+	} else {
+		return "No"
+	}
+}
+
+func NbYear(p0 int, percent float64, aug int, p int) int {
+	years := 0
+	varP0 := float64(p0)
+	for varP0 < float64(p) {
+		varP0 = math.Floor(varP0*(percent/100+1.0) + float64(aug))
+		years += 1
+	}
+	return years
+}
+
+func ArrayDiff(a, b []int) []int {
+	res := []int{}
+	for ind, val := range a {
+		found := false
+		for _, val2 := range b {
+			if val == val2 {
+				found = true
+			}
+		}
+		if !found {
+			res = append(res, a[ind])
+		}
+	}
+	return res
+}
+
+func FindNb(m int) int {
+	n := 1
+	t := 1
+	for t < m {
+		t = int(math.Pow(float64((n*(n+1))/2), 2))
+		n++
+	}
+	if int(math.Pow(float64(((n-1)*(n))/2), 2)) == m {
+		return n - 1
+	} else {
+		return -1
+	}
+}
+
+func main() {
+	// res := ArrayDiff([]int{1, 2, 2, 2, 3}, []int{2})
+	res := FindNb(1071225)
+
 	fmt.Println(res)
+	// res := Disemvowel("This website is for losers LOL!")
+	// res := ValidISBN10("ABCDEFGHIJ")
+	// res := duplicate_count("Indivisibilities")
+	// res := DNAtoRNA("GCAT")
+	// res := Persistence(999)
+	// res := GetMiddle("test")
+	// res := NbYear(1500, 5, 100, 5000)
 	// result := SumMix([]any{"5", "0", 9, 3, 2, 1, "9", 6, 7})
 	// result := Invert([]int{1, 2, 3, 4})
 	// result := Digitize(435s12)
