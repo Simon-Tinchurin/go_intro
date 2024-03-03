@@ -528,9 +528,79 @@ func FindNb(m int) int {
 	}
 }
 
+func Permutations(input string) []string {
+	var result []string
+	var permute func([]rune, int)
+	permute = func(input []rune, index int) {
+		if index == len(input)-1 {
+			result = append(result, string(input))
+			return
+		}
+		seen := map[rune]bool{}
+		for i := index; i < len(input); i++ {
+			if _, found := seen[input[i]]; found {
+				continue // Пропускаем повторяющиеся символы
+			}
+			seen[input[i]] = true
+			input[index], input[i] = input[i], input[index]
+			permute(input, index+1)
+			input[index], input[i] = input[i], input[index] // Возвращаем исходное состояние для следующей перестановки
+		}
+	}
+
+	permute([]rune(input), 0)
+	sort.Strings(result) // Сортируем результат для удобства проверки на дубликаты
+	return result
+}
+
+func MoveZeros(arr []int) []int {
+	result := []int{}
+	for _, v := range arr {
+		if v != 0 {
+			result = append(result, v)
+		}
+	}
+	for i := len(result); i < len(arr); i++ {
+		result = append(result, 0)
+	}
+	return result
+}
+
+func Determinant(matrix [][]int) int {
+	n := len(matrix)
+	if n == 1 {
+		return matrix[0][0]
+	}
+
+	var det int
+	for j := 0; j < n; j++ {
+		minor := make([][]int, n-1)
+		for i := range minor {
+			minor[i] = make([]int, n-1)
+		}
+
+		for i := 1; i < n; i++ {
+			copy(minor[i-1], matrix[i][:j])
+			copy(minor[i-1][j:], matrix[i][j+1:])
+		}
+
+		sign := 1
+		if j%2 != 0 {
+			sign = -1
+		}
+
+		det += sign * matrix[0][j] * Determinant(minor)
+	}
+
+	return det
+}
+
 func main() {
 	// res := ArrayDiff([]int{1, 2, 2, 2, 3}, []int{2})
-	res := FindNb(1071225)
+	// res := FindNb(1071225)
+	// res := Permutations("abcd")
+	// res := MoveZeros([]int{1, 2, 0, 1, 0, 1, 0, 3, 0, 1})
+	res := Determinant([][]int{{2, 5, 3}, {1, -2, -1}, {1, 3, 4}})
 
 	fmt.Println(res)
 	// res := Disemvowel("This website is for losers LOL!")
