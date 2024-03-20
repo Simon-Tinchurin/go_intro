@@ -32,10 +32,10 @@ func test(path string) ([]string, error) {
 }
 
 // ----------------
-func returnRog() (rog int) {
-	rog = 123
-	return
-}
+// func returnRog() (rog int) {
+// 	rog = 123
+// 	return
+// }
 
 func functions_main() {
 	// write function in a variable
@@ -46,6 +46,6 @@ func functions_main() {
 
 	f, _ := getFiles(".")
 	fmt.Println(f)
-	fmt.Println(returnRog())
+	// fmt.Println(returnRog())
 	fmt.Println(functionInVariable(1, 5))
 }
