@@ -57,7 +57,7 @@ func getAllUsers(db *sql.DB) {
 	}
 }
 
-func main() {
+func connect() {
 	// connection string
 	psqlconn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
